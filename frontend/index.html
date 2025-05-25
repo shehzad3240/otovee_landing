@@ -2,50 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Otovee | PCOS Support</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Otovee – Empowering PCOS Health</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f0fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      padding: 30px;
+    }
+
+    img {
+      width: 180px;
+    }
+
+    h1 {
+      color: #5c3c92;
+    }
+
+    p {
+      color: #333;
+      margin: 10px 20px;
+    }
+
+    .features {
+      margin: 30px auto;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    form {
+      margin: 40px auto;
+    }
+
+    input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #a678e2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #response {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
-<body class="bg-purple-50 text-gray-800">
-  <div class="max-w-4xl mx-auto text-center py-12">
-    <img src="/static/logo.png" alt="Otovee Logo" class="w-32 mx-auto mb-4" />
-    <h1 class="text-4xl font-bold text-purple-700 mb-4">Otovee</h1>
-    <p class="text-lg mb-6">A digital platform to help women manage PCOS with personalized support, trusted care, and simplified tracking.</p>
 
-    <div class="bg-white p-6 rounded shadow-md mb-8 text-left">
-      <h2 class="text-2xl font-semibold text-purple-600 mb-2">Why Otovee?</h2>
-      <ul class="list-disc list-inside text-gray-700 text-md space-y-1">
-        <li>📊 Track symptoms like mood, cycle, and energy.</li>
-        <li>🤝 Chat with a PCOS Buddy for daily guidance.</li>
-        <li>📁 Upload and organize your medical reports.</li>
-        <li>👩‍⚕️ Connect with verified doctors & labs.</li>
-        <li>💡 Learn about nutrition, hormones, and lifestyle changes.</li>
-      </ul>
-    </div>
+<body>
+  <header>
+    <img src="/static/logo.png" alt="Otovee Logo" />
+    <h1>Welcome to Otovee</h1>
+    <p>Your digital companion for PCOS care, awareness, and empowerment.</p>
+  </header>
 
-    <form id="subscribeForm" class="flex flex-col items-center space-y-4">
-      <input id="email" type="email" placeholder="Enter your email" required class="border border-purple-300 px-4 py-2 rounded w-80" />
-      <button type="submit" class="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700">Subscribe</button>
-    </form>
+  <section class="features">
+    <h3>Why Otovee?</h3>
+    <ul>
+      <li>📁 Centralized medical data access</li>
+      <li>🧠 Support from verified experts & AI</li>
+      <li>📈 Symptom tracking and real insights</li>
+      <li>🤝 Community and PCOS Buddy support</li>
+    </ul>
+  </section>
 
-    <p id="msg" class="mt-4 text-green-600 hidden">Thank you for subscribing!</p>
-  </div>
+  <form id="subscribe-form">
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+    <div id="response"></div>
+  </form>
 
   <script>
-    const form = document.getElementById('subscribeForm');
-    form.onsubmit = async (e) => {
+    const form = document.getElementById('subscribe-form');
+    const responseEl = document.getElementById('response');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
-      const res = await fetch('/subscribe', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ email })
-      });
-      if (res.ok) {
-        document.getElementById('msg').classList.remove('hidden');
-        form.reset();
+
+      try {
+        const res = await fetch('https://otovee-backend.onrender.com/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        if (res.ok) {
+          responseEl.textContent = 'Thank you for subscribing!';
+        } else {
+          responseEl.textContent = 'Something went wrong. Try again.';
+        }
+      } catch (err) {
+        responseEl.textContent = 'Error connecting to server.';
       }
-    };
+    });
   </script>
 </body>
 </html>

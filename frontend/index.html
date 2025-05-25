@@ -1,117 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Otovee – Empowering PCOS Health</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otovee</title>
+  <meta name="description" content="Otovee is a digital health platform offering personalized PCOS management, expert support, and community for women.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Otovee">
+  <meta property="og:description" content="Otovee is a digital health platform offering personalized PCOS management, expert support, and community for women.">
+  <meta property="og:type" content="website">
+  <!-- Favicon: simple lavender circle -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><circle cx='16' cy='16' r='16' fill='%23E6E6FA'/></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom font -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f0fa;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    header {
-      padding: 30px;
-    }
-
-    img {
-      width: 180px;
-    }
-
-    h1 {
-      color: #5c3c92;
-    }
-
-    p {
-      color: #333;
-      margin: 10px 20px;
-    }
-
-    .features {
-      margin: 30px auto;
-      max-width: 600px;
-      text-align: left;
-    }
-
-    form {
-      margin: 40px auto;
-    }
-
-    input[type="email"] {
-      padding: 10px;
-      width: 250px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-right: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #a678e2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    #response {
-      margin-top: 15px;
-      font-weight: bold;
-      color: green;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+    body { font-family: 'Quicksand', sans-serif; }
   </style>
 </head>
+<body class="bg-white text-gray-800">
 
-<body>
-  <header>
-    <img src="/static/logo.png" alt="Otovee Logo" />
-    <h1>Welcome to Otovee</h1>
-    <p>Your digital companion for PCOS care, awareness, and empowerment.</p>
+  <!-- HEADER -->
+  <header class="flex items-center justify-between p-6 bg-white">
+    <!-- Canva embed for logo -->
+    <iframe src="https://www.canva.com/design/DAGoeypy8mg/view?embed"
+            frameborder="0"
+            class="h-12 w-auto">
+    </iframe>
   </header>
 
-  <section class="features">
-    <h3>Why Otovee?</h3>
-    <ul>
-      <li>📁 Centralized medical data access</li>
-      <li>🧠 Support from verified experts & AI</li>
-      <li>📈 Symptom tracking and real insights</li>
-      <li>🤝 Community and PCOS Buddy support</li>
-    </ul>
+  <!-- HERO -->
+  <section class="flex flex-col items-center justify-center text-center py-16 bg-gradient-to-b from-[#E6E6FA] to-white px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Take Control of Your PCOS</h1>
+    <p class="text-lg md:text-xl mb-8">Welcome to Otovee, your personalized PCOS management platform.</p>
+
+    <!-- Responsive Video Embed -->
+    <div class="relative w-full max-w-3xl mb-8" style="padding-top:56.25%;">
+      <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+              src="https://www.canva.com/design/DAGnskLBR7Y/view?embed"
+              frameborder="0"
+              allowfullscreen
+              title="Otovee Introduction">
+      </iframe>
+    </div>
+
+    <!-- Subscription Form -->
+    <form action="https://otovee.com/api/subscribe" method="POST" class="flex flex-col sm:flex-row items-center w-full max-w-md">
+      <input type="email" name="email" placeholder="Enter your email" required
+             class="w-full px-4 py-3 mb-4 sm:mb-0 sm:mr-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C8A2C8]">
+      <button type="submit"
+              class="w-full sm:w-auto px-6 py-3 bg-[#C8A2C8] text-white font-semibold rounded-xl shadow hover:scale-105 transform transition">
+        Subscribe to Get Early Access
+      </button>
+    </form>
   </section>
 
-  <form id="subscribe-form">
-    <input type="email" id="email" placeholder="Enter your email" required />
-    <button type="submit">Subscribe</button>
-    <div id="response"></div>
-  </form>
+  <!-- ABOUT & APPROACH -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">About Otovee</h2>
+      <p>Otovee, a product of Ecolve Technologies, is a digital health platform committed to supporting women with PCOS through personalized tools, emotional support, and accessible health insights. Our vision is to bridge the gap in women's health by combining research, empathy, and technology.</p>
+    </div>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <h3 class="text-xl font-semibold mb-2">Talk to Your Personalized PCOS Buddy</h3>
+        <p>Connect with a dedicated buddy who understands your journey and offers tailored guidance.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-xl font-semibold mb-2">Share and Understand Reports</h3>
+        <p>Easily upload and review your health reports with clear insights and expert analysis.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-xl font-semibold mb-2">Consult with Professionals</h3>
+        <p>Get access to certified professionals for consultations and personalized care plans.</p>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    const form = document.getElementById('subscribe-form');
-    const responseEl = document.getElementById('response');
+  <!-- FOOTER -->
+  <footer class="py-8 bg-gray-100 text-center">
+    <p>&copy; 2025 Otovee. All rights reserved.</p>
+  </footer>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-
-      try {
-        const res = await fetch('https://otovee-backend.onrender.com/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-
-        if (res.ok) {
-          responseEl.textContent = 'Thank you for subscribing!';
-        } else {
-          responseEl.textContent = 'Something went wrong. Try again.';
-        }
-      } catch (err) {
-        responseEl.textContent = 'Error connecting to server.';
-      }
-    });
-  </script>
 </body>
 </html>
